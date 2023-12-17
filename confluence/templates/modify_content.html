@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Content</title>
+    <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional: Add your custom CSS styles here -->
+</head>
+<body class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center mb-4">Modify Content</h1>
+            <form method="post" action="{% url 'modify_content' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="space">Select Space:</label>
+                    <select class="form-control" id="space" name="space" required>
+                        <!-- Replace 'Space1' and 'Space2' with your actual space keys -->
+                        <option value="Space1" {% if space_key == 'Space1' %}selected{% endif %}>Uni_Project</option>
+                        <option value="Space2" {% if space_key == 'Space2' %}selected{% endif %}>Documentat</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea class="form-control" id="content" name="content" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Upload File:</label>
+                    <input type="file" class="form-control-file" id="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Optional: Add your custom scripts here -->
+</body>
+</html>

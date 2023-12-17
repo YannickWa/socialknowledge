@@ -1,0 +1,54 @@
+{% extends 'base_steps.html' %}
+
+{% block title %}Step 2{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Step 2</title>
+    <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional: Add your custom CSS styles here -->
+</head>
+<body>
+    <div class="container">
+        <h2>Step 2: Edit and Verify</h2>
+        
+        <form method="post" action="{% url 'step2' %}">
+            {% csrf_token %}
+            
+            <!-- Add hidden input fields for space_key and title -->
+            <input type="hidden" name="space" value="{{ space_key }}">
+            <input type="hidden" name="title" value="{{ title }}">
+
+            <div class="form-group">
+                <label for="space">Space:</label>
+                <span>{{ space_key }}</span>
+                <!-- You can style or format the display as needed -->
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <span>{{ title }}</span>
+            </div>
+
+            <div class="form-group">
+                <label for="processed_content">Please Edit and verify your content:</label><br>
+                <textarea class="form-control" id="processed_content" name="processed_content" rows="10" cols="100">{{ processed_content }}</textarea><br><br>
+            </div>
+
+            <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <!-- Optional: Add your custom scripts here -->
+
+            <input type="submit" class="btn btn-primary" value="Post on Confluence">
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

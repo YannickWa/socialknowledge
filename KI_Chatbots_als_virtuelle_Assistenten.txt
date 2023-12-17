@@ -1,0 +1,23 @@
+Notizen Use Cases:
+
+* User auf die Funktionalität von CAS aufmerksam machen, die weniger häufig verwendet werden
+
+
+* Help Pages per Kommunikation mit Chatbot aufrufen/aufsagen lassen
+Frage-Antwort, Next Steps, oder Kontakt
+
+
+It's pretty annoying and troublesome when we have to navigate the pages for general customer information, which is not a good customer service example.
+But by implementing a chatbot for customer service, updating records can be made simpler and quicker. 
+Chatbot for customer service can achieve this without even logging into the CRM system every time. 
+You can interact with your chatbot for customer service in human language with text or voice inputs to update records as per the need. 
+For instance, Add customer T's phone number- <any mobile number>. 
+
+
+h2. Zusammenfassung der CAS-Funktionalitäten und Hilfeseiten-Nutzung
+
+- Hervorheben von weniger genutzten *CAS-Funktionalitäten* um das Bewusstsein und die Nutzung durch die User zu steigern.
+- Ermöglichen, dass *Help Pages* durch Interaktion mit einem *Chatbot* abgerufen oder angesagt werden können, inklusive Unterstützung bei:
+  - **Frage-Antwort** Dialogen
+  - Darstellung von **Next Steps**
+  - Bereitstellung von **Kontaktinformationen** bei Bedarf

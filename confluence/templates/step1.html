@@ -1,0 +1,57 @@
+{% extends 'base_steps.html' %}
+
+{% block title %}Step 1: User Input{% endblock %}
+
+{% block content %}
+
+<head>
+    <title>Step 1: User Input</title>
+    <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional: Add your custom CSS styles here -->
+</head>
+<body class="container mt-5">
+    <h2 class="text-center mb-4">Step 1: User Input</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="post" action="{% url 'step1' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="space">Select Space:</label>
+                    <select class="form-control" id="space" name="space" required>
+                        <!-- Replace 'Space1' and 'Space2' with your actual space keys -->
+                        <option value="Space1" {% if space_key == 'Space1' %}selected{% endif %}>Uni_Project</option>
+                        <option value="Space2" {% if space_key == 'Space2' %}selected{% endif %}>Documentat</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_text">User Input:</label>
+                    <textarea class="form-control" id="input_text" name="input_text" rows="4" cols="50">{{ input_text }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Upload File:</label>
+                    <input type="file" class="form-control-file" id="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Process</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Optional: Add your custom scripts here -->
+</body>
+</html>
+{% endblock %}
