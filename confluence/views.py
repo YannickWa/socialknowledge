@@ -40,6 +40,7 @@ def openai_process_content(content, concatenated_prompt, max_tokens_key):
             {"role": "user", "content": f"Folgenden Inhalt zusammenfassen und formatieren: '{content}'"},
         ],
         max_tokens=max_tokens_key,
+        temperature = 0.2,
     )
     return response.choices[0].message["content"]
 
@@ -214,10 +215,10 @@ def step_1(request):
             'Labels': 'Labels, ',
             'Panels': 'Panels, ',
             'Layout': 'Layouts, ',
-            'Previews': 'Previews, ',
-            'Interactive': 'Interactive Elements, ',
-            'Expand': 'Expands, ',
-            'Statuses': 'Statuses, ',
+            # 'Previews': 'Previews, ',
+            # 'Interactive': 'Interactive Elements, ',
+            # 'Expand': 'Expands, ',
+            # 'Statuses': 'Statuses, ',
         }
 
         max_tokens_mapping = {
