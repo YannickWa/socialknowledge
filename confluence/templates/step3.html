@@ -1,0 +1,58 @@
+{% extends 'base_steps.html' %}
+
+{% block title %}Step 3{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: Done! </title>
+    <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2>Step 3</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                {% if success_message %}
+                    <div class="alert alert-success" role="alert">
+                        {{ success_message }}
+                    </div>
+                {% elif error_message %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error_message }}
+                    </div>
+                {% endif %}
+
+                {% if processed_content %}
+                    <h3>Processed Content:</h3>
+                    <div>{{ processed_content|safe }}</div>
+                {% endif %}
+
+                {% if page_url %}
+                    {% with prefix="https://socialknowledge.atlassian.net/wiki" %}
+                        <p>Click the link below to view or edit the page:</p>
+                        <a href="{{ prefix }}{{ page_url }}" target="_blank">{{ prefix }}{{ page_url }}</a>
+                    {% endwith %}
+                {% endif %}
+                
+                <!-- <p><a href="{% url 'step1' %}" class="btn btn-primary">Go back to Step 1</a></p> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock %}

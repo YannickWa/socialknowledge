@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
+
+    <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Optional: Add your custom CSS styles here -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set your preferred background color */
+            padding: 50px;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .btn-custom {
+            background-color: #007bff; /* Set your preferred button color */
+            color: #fff; /* Set your preferred button text color */
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Knowledge-Sharing powered by AI!</h1>
+    <p>Knowledge-Sharing made easy.</p>
+
+    <!-- Clickable button that redirects to the "step_1" URL -->
+    <a href="{% url 'confluence_space_info' %}" class="btn btn-custom">Get-Request</a>
+    <a href="{% url 'step1' %}" class="btn btn-custom">Post-Request</a>
+</div>
+
+<!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Optional: Add your custom scripts here -->
+
+</body>
+</html>

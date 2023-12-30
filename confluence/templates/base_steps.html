@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Title{% endblock %}</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Resizable library (from CDN in this example) -->
+    <script src="https://unpkg.com/@aaronshaf/resizable@0.5.4/dist/resizable.min.js"></script>
+
+
+</head>
+<body>
+
+    <!-- Bootstrap Navbar for Progress Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'step1' %}">Step 1: User Input</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'step2' %}">Step 2: Edit and Verify</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'step3' %}">Step 3: Finalize</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4 resizable-iframe">
+                <iframe srcdoc='
+                    <pre>
+                        <h1>Überschriften</h1>
+                        <h2>h1. Überschrift 1</h2>
+                        <h2>h2. Überschrift 2</h2>
+                        <h2>h3. Überschrift 3</h2>
+                        <h1>Textformatierung</h1>
+                        <h2>Fett:</h2> *Text* oder **Text**
+                        <h2>Kursiv:</h2> _Text_ oder *Text*
+                        <h2>Unterstrichen:</h2> {color:blau}*Text*{color}
+                        <h2>Durchgestrichen:</h2> -Text-
+                        <h1>Listen</h1>
+                        <h2>Aufzählungspunkte:</h2> * Punkt 1, ** Unterpunkt 1.1
+                        <h2>Nummerierte Listen:</h2> # Punkt 1, ## Unterpunkt 1.1
+                        <h1>Links</h1>
+                        <h2>Externe Links:</h2> [Link-Text|http://beispiel.com]
+                        <h2>Interne Links:</h2> [Seitentitel]
+                        <h2>Ankerlinks:</h2> [Link-Text|#AnkerName]
+                        <h1>Bilder</h1>
+                        <h2>!bild.jpg!</h2>
+                        <h1>Tabellen</h1>
+                        || Kopfzeile 1 || Kopfzeile 2 ||
+                        | Zelle 1.1 | Zelle 1.2 |
+                        | Zelle 2.1 | Zelle 2.2 |
+                        <h1>Codeblöcke</h1>
+                        <h2>Codeblock:</h2> {Code} Code-Block {Code}
+                        <h1>Zitate</h1>
+                        <h2>{quote} Zitierter Text {quote}</h2>
+                        <h1>Trennlinien</h1>
+                        <h2>----</h2>
+                        <h1>Farben</h1>
+                        <h2>{color:rot}Text{color}</h2>
+                        <h1>Makros</h1>
+                        <h2>Verschiedene Makros zum Einbetten von Inhalten:</h2> (z.B., {expand}, {panel}, {note}, etc.)
+                        <h1>Erwähnungen</h1>
+                        <h2>@Benutzername</h2>
+                        <h1>Seitenumbrüche</h1>
+                        <h2>---</h2>
+                        <h1>Fußnoten</h1>
+                        <h2>[^1] (für Fußnoten)</h2>
+                        <h1>Anhänge</h1>
+                        <h2>!anhängen.gif!</h2>
+                        <h1>Info-, Warn- und Fehler-Blöcke</h1>
+                        <h2>{info}</h2>Informationstext{info}
+                        <h2>{warning}</h2>Warnungstext{warning}
+                        <h2>{error}</h2>Fehlertext{error}
+                        <style>
+                            h1 { color: blue; }
+                            h2 {    color: black;
+                                    font-size: 14px;
+                                    line-height: 0;
+                                }
+                            h3 { color: purple; }
+                        </style>
+                    </pre>
+                ' style="width: 100%; height: 500px; display: inline-block; margin: 0 auto;"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

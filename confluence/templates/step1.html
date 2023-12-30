@@ -1,0 +1,120 @@
+{% extends 'base_steps.html' %}
+
+{% block title %}Step 1: User Input{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Step 1: User Input</title>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+<body>
+    <div class ="container">
+    <h2 class="text-center mb-4">Step 1: User Input</h2>
+    
+        <!-- <div class="col-md-8"> -->
+            <form method="post" action="{% url 'step1' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="space">Select Space:</label>
+                    <select class="form-control" id="space" name="space" required>
+                        <option value="Space1" {% if space_key == 'Space1' %}selected{% endif %}>Uni_Project</option>
+                        <option value="Space2" {% if space_key == 'Space2' %}selected{% endif %}>Documentat</option>
+                    </select>
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="prompt">Select Prompts:</label><br>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Tables" name="prompt" value="Tables" {% if 'Tables' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Tables">Tables</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Labels" name="prompt" value="Labels" {% if 'Labels' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Labels">Labels</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Panels" name="prompt" value="Panels" {% if 'Panels' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Panels">Panels</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Layout" name="prompt" value="Layout" {% if 'Layout' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Layout">Layout</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Previews" name="prompt" value="Previews" {% if 'Previews' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Previews">Previews</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Interactive" name="prompt" value="Interactive" {% if 'Interactive' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Interactive">Interactive Elements</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Expand" name="prompt" value="Expand" {% if 'Expand' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Expand">Expand</label>
+                    </div>
+                    <div class="form-check inline-checkbox">
+                        <input type="checkbox" class="form-check-input" id="Statuses" name="prompt" value="Statuses" {% if 'Statuses' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Statuses">Statuses</label>
+                    </div>
+                </div>
+                
+                
+
+                <!-- Old Prompting
+                    <div class="form-group">
+                    <label for="prompt">Select Prompts:</label>
+                    <select class="form-control" id="prompt" name="prompt" required>
+                        <option value="Tables" {% if prompt_key == 'Tables' %}selected{% endif %}>Tables</option>
+                        <option value="Lables" {% if prompt_key == 'Lables' %}selected{% endif %}>Lables</option>
+                        <option value="Panels" {% if prompt_key == 'Panels' %}selected{% endif %}>Panels</option>
+                        <option value="Layout" {% if prompt_key == 'Layout' %}selected{% endif %}>Layout</option>
+                        <option value="Previews" {% if prompt_key == 'Previews' %}selected{% endif %}>Previews</option>
+                        <option value="Interactive Elements" {% if prompt_key == 'Interactive Elements' %}selected{% endif %}>Interactive Elements</option>
+                        <option value="Expand" {% if prompt_key == 'Expand' %}selected{% endif %}>Expand</option>
+                        <option value="Statuses" {% if prompt_key == 'Statuses' %}selected{% endif %}>Statuses</option>
+                    </select>
+                </div> -->
+                
+                <div class="form-group">
+                    <label for="max_tokens">Select Token-Size:</label>
+                    <select class="form-control" id="max_tokens" name="max_tokens" required>
+                        <option value="Short" {% if max_tokens_key == 'Short' %}selected{% endif %}>Short</option>
+                        <option value="Middle" {% if max_tokens_key == 'Middle' %}selected{% endif %}>Middle</option>
+                        <option value="Long" {% if max_tokens_key == 'Long' %}selected{% endif %}>Long</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_text">User Input:</label>
+                    <textarea class="form-control" id="input_text" name="input_text" rows="4" cols="50">{{ input_text }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Upload File:</label>
+                    <input type="file" class="form-control-file" id="file" name="file">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Process</button>
+            </form>
+        <!-- </div> -->
+    
+
+    <style>
+        .inline-checkbox {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</div>
+</body>
+</html>
+{% endblock %}
