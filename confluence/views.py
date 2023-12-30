@@ -27,10 +27,7 @@ openai.api_key =  secret.APIKEY_openAI
 #     return response.choices[0].message["content"]
 
 ### Mui Importante: Prompt ###
-basic_prompt = "Als textuellen Input kriegst du Notizen oder Stichpunkte die du inhaltlich zusammenfasst. Verzichte dabei auf Tips und Informationen zu korrektem Gebrauch am Anfang und Ende.\
-            \ Der Output sollte so aufbereitet werden, dass er auf einer Knowledge-Sharing Plattform landet und den aktuellen Confluence-Konventionen entspricht. \
-            \ Eingefügte Links und Bilder verweisen nicht auf entsprechende Confluence Inhalte sondern sind exakt wie angegeben darzustellen. \
-             \ Wende dafür entsprechende Confluence Syntax und Markup-Formattierungen an, um den Text aufzubereiten, beispielsweise:"
+basic_prompt = "Generiere einen gut strukturierten Confluence-Artikel basierend auf den zufälligen Notizen oder Aufschrieben, die als Input bereitgestellt werden. Der Artikel soll klare Confluence-Syntax und Markup-Language verwenden, wobei Elemente wie Symbole, Icons, Emojis, Panels und weitere visuelle Elemente eingebunden werden. Stelle sicher, dass Links und Bilder direkt im Artikel angezeigt werden, ohne auf externe Confluence-Seiten zu verlinken. Der Fokus liegt darauf, die eingehenden Informationen ansprechend und verständlich darzustellen."
 
 def openai_process_content(content, concatenated_prompt, max_tokens_key):
     response = openai.ChatCompletion.create(
@@ -40,7 +37,7 @@ def openai_process_content(content, concatenated_prompt, max_tokens_key):
             {"role": "user", "content": f"Folgenden Inhalt zusammenfassen und formatieren: '{content}'"},
         ],
         max_tokens=max_tokens_key,
-        temperature = 0.2,
+        temperature = 0.8,
     )
     return response.choices[0].message["content"]
 
@@ -85,6 +82,7 @@ def modify_content(request):
         space_key_mapping = {
             'Space1': 'TEAM',
             'Space2': 'Documentat',
+            'Space3': 'YannickTes',
         }
 
         # Get the space_key based on the user's selection
@@ -208,6 +206,8 @@ def step_1(request):
         space_key_mapping = {
             'Space1': 'TEAM',
             'Space2': 'Documentat',
+            'Space3': 'YannickTes',
+            'Space4': 'VitaliTest',
         }
 
         prompt_mapping = {
