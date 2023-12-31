@@ -14,7 +14,8 @@
 </head>
 <body>
     <div class="container">
-        <h2>Step 2: Edit and Verify</h2>
+        <div class="rounded p-4" style="background-color: #9bc5ef;">
+        <h2 class = "text-center mb-4">Step 2: Edit and Verify</h2>
         <p>Concatenated Prompt: {{ concatenated_prompt }}</p>
         
         <form method="post" action="{% url 'step2' %}">
@@ -48,7 +49,14 @@
 
             <input type="submit" class="btn btn-primary" value="Post on Confluence">
         </form>
+
     </div>
+<style>
+    .rounded {
+        border-radius: 10px;
+    }
+</style>
+</div>
 </body>
 </html>
 

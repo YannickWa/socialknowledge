@@ -27,17 +27,20 @@ openai.api_key =  secret.APIKEY_openAI
 #     return response.choices[0].message["content"]
 
 ### Mui Importante: Prompt ###
-basic_prompt = "Als textuellen Input kriegst du Notizen oder Stichpunkte die du inhaltlich zusammenfasst. \
-             \ Der Output sollte so aufbereitet werden, dass er auf einer Knowledge-Sharing Plattform landet und gegebenenen Konventionen entspricht. \
-              \ Wende dafür entsprechende Confluence Syntax und Markup-Formattierungen an, um den Text aufzubereiten. Benutze falls angebracht Elemente wie Iframes oder Tabellen. \
-              \ Eingefügte Links und Bilder verweisen nicht auf entsprechende Confluence Inhalte sondern sind entsprechend darzustellen. Vorhandene Codeschnipsel bitte formattiert darstellen."
+# basic_prompt = "Als textuellen Input kriegst du Notizen oder Stichpunkte die du inhaltlich zusammenfasst. \
+#              \ Bereite den Output so vor, dass er vorzeigbar auf Confluence landen kann und verwende dafür Confluence-Syntax-Elemente und Markup-Formattierungen. \
+#               \ Verzichte auf eine Beschreibung deines Vorhabens und den Hinweisen am Ende. Stelle Links und Bilder so dar wie sie reinkommen, ohne auf Confluence Inhalte zu verweisen."
+
+
+basic_prompt = "Verfasse einen Confluence-kompatiblen Artikel basierend auf dem folgenden textuellen Inhalt. Der Artikel soll klare Struktur und Confluence-Syntax aufweisen, einschließlich Überschriften, Listen, Links und anderen Formatierungen. Betone wichtige Informationen visuell durch Panels oder Symbole. Beachte dabei, dass der Output direkt auf einer Confluence-Seite veröffentlicht werden soll."
+
 
 def openai_process_content(content, concatenated_prompt, max_tokens_key):
     response = openai.ChatCompletion.create(
         model="gpt-4-1106-preview",
         messages=[
             {"role": "system", "content": f'{basic_prompt}' + f" '{concatenated_prompt}'."},
-            {"role": "user", "content": f"Folgenden Inhalt zusammenfassen und formatieren: '{content}'"},
+            {"role": "user", "content": f"Folgenden textuellen Inhalt zusammenfassen und formatieren:  '{content}'"},
         ],
         max_tokens=max_tokens_key,
         temperature = 0.8,
@@ -214,14 +217,14 @@ def step_1(request):
         }
 
         prompt_mapping = {
-            'Tables': 'Tabellen, für eine bessere Übersicht ',
-            'Labels': 'Labels mit beispielsweise der Syntax "{labels:label1|label2|label3}"zum kategorisieren und organisieren, ',
-            'Panels': 'Panels wo sie angebracht sind, ',
-            'Symbols': 'Symbole und Icons für eine bessere Darstellung, ',
+            'Tables': 'Tabellen, für eine bessere Übersicht, ',
+            'Codes': 'Codebausteine und Code-Highlighting im "{code}" Format, ',
+            'Makros': 'Makros (z.B. Panels, Expand, Notes, etc.), um Inhalte hervorzuheben, ',
+            'Symbols': 'Symbole und Icons für eine bessere Darstellung von Zwischenschritten, ',
             # 'Previews': 'Previews, ',
             # 'Interactive': 'Interactive Elements, ',
             # 'Expand': 'Expands, ',
-            # 'Statuses': 'Statuses, ',
+            'Statuses': 'Interaktive Statuselemente ',
         }
 
         max_tokens_mapping = {
@@ -233,7 +236,7 @@ def step_1(request):
         # Get the keys bases on user choice
         space_key = space_key_mapping.get(space_key, '')
         # prompt_key = prompt_mapping.get(prompt_key, '')
-        concatenated_prompt = 'Verwende dafür explizit folgende Confluence-Syntax-Elemente: ' + ' '.join(prompt_mapping.get(prompt, '') for prompt in selected_prompt_keys)
+        concatenated_prompt = 'Folgende Confluence-Elemente sind in jedem Fall zu verwenden: ' + ' '.join(prompt_mapping.get(prompt, '') for prompt in selected_prompt_keys)
         max_tokens_key = max_tokens_mapping.get(max_tokens_key, '')
 
         # Check if there's an uploaded file

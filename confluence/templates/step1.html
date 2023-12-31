@@ -11,6 +11,7 @@
 </head>
 <body>
     <div class ="container">
+        <div class="rounded p-4" style="background-color: #9bc5ef;">
     <h2 class="text-center mb-4">Step 1: User Input</h2>
     
         <!-- <div class="col-md-8"> -->
@@ -35,12 +36,12 @@
                         <label class="form-check-label" for="Tables">Tables</label>
                     </div>
                     <div class="form-check inline-checkbox">
-                        <input type="checkbox" class="form-check-input" id="Labels" name="prompt" value="Labels" {% if 'Labels' in prompt_keys %}checked{% endif %}>
-                        <label class="form-check-label" for="Labels">Labels</label>
+                        <input type="checkbox" class="form-check-input" id="Codes" name="prompt" value="Codes" {% if 'Codes' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Codes">Codes</label>
                     </div>
                     <div class="form-check inline-checkbox">
-                        <input type="checkbox" class="form-check-input" id="Panels" name="prompt" value="Panels" {% if 'Panels' in prompt_keys %}checked{% endif %}>
-                        <label class="form-check-label" for="Panels">Panels</label>
+                        <input type="checkbox" class="form-check-input" id="Makros" name="prompt" value="Makros" {% if 'Makros' in prompt_keys %}checked{% endif %}>
+                        <label class="form-check-label" for="Makros">Makros</label>
                     </div>
                     <div class="form-check inline-checkbox">
                         <input type="checkbox" class="form-check-input" id="Symbols" name="prompt" value="Symbols" {% if 'Symbols' in prompt_keys %}checked{% endif %}>
@@ -57,11 +58,11 @@
                     <div class="form-check inline-checkbox">
                         <input type="checkbox" class="form-check-input" id="Expand" name="prompt" value="Expand" {% if 'Expand' in prompt_keys %}checked{% endif %}>
                         <label class="form-check-label" for="Expand">Expand</label>
-                    </div>
+                    </div> -->
                     <div class="form-check inline-checkbox">
                         <input type="checkbox" class="form-check-input" id="Statuses" name="prompt" value="Statuses" {% if 'Statuses' in prompt_keys %}checked{% endif %}>
                         <label class="form-check-label" for="Statuses">Statuses</label>
-                    </div> -->
+                    </div> 
                 </div>
                 
                 
@@ -84,9 +85,9 @@
                 <div class="form-group">
                     <label for="max_tokens">Select Token-Size:</label>
                     <select class="form-control" id="max_tokens" name="max_tokens" required>
-                        <option value="Short" {% if max_tokens_key == 'Short' %}selected{% endif %}>Short</option>
-                        <option value="Middle" {% if max_tokens_key == 'Middle' %}selected{% endif %}>Middle</option>
-                        <option value="Long" {% if max_tokens_key == 'Long' %}selected{% endif %}>Long</option>
+                        <option value="Short" {% if max_tokens_key == 'Short' %}selected{% endif %}>Short (400)</option>
+                        <option value="Middle" {% if max_tokens_key == 'Middle' %}selected{% endif %}>Middle (800)</option>
+                        <option value="Long" {% if max_tokens_key == 'Long' %}selected{% endif %}>Long (1200)</option>
                     </select>
                 </div>
 
@@ -115,7 +116,11 @@
             display: inline-block;
             margin-right: 10px;
         }
+        .rounded {
+            border-radius: 10px;
+        }
     </style>
+    </div>
 </div>
 </body>
 </html>
