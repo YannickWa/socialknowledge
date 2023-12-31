@@ -27,7 +27,10 @@ openai.api_key =  secret.APIKEY_openAI
 #     return response.choices[0].message["content"]
 
 ### Mui Importante: Prompt ###
-basic_prompt = "Generiere einen gut strukturierten Confluence-Artikel basierend auf den zufälligen Notizen oder Aufschrieben, die als Input bereitgestellt werden. Der Artikel soll klare Confluence-Syntax und Markup-Language verwenden, wobei Elemente wie Symbole, Icons, Emojis, Panels und weitere visuelle Elemente eingebunden werden. Stelle sicher, dass Links und Bilder direkt im Artikel angezeigt werden, ohne auf externe Confluence-Seiten zu verlinken. Der Fokus liegt darauf, die eingehenden Informationen ansprechend und verständlich darzustellen."
+basic_prompt = "Als textuellen Input kriegst du Notizen oder Stichpunkte die du inhaltlich zusammenfasst. \
+             \ Der Output sollte so aufbereitet werden, dass er auf einer Knowledge-Sharing Plattform landet und gegebenenen Konventionen entspricht. \
+              \ Wende dafür entsprechende Confluence Syntax und Markup-Formattierungen an, um den Text aufzubereiten. Benutze falls angebracht Elemente wie Iframes oder Tabellen. \
+              \ Eingefügte Links und Bilder verweisen nicht auf entsprechende Confluence Inhalte sondern sind entsprechend darzustellen. Vorhandene Codeschnipsel bitte formattiert darstellen."
 
 def openai_process_content(content, concatenated_prompt, max_tokens_key):
     response = openai.ChatCompletion.create(
@@ -211,10 +214,10 @@ def step_1(request):
         }
 
         prompt_mapping = {
-            'Tables': 'Tables und Tables of Contents, ',
-            'Labels': 'Labels, ',
-            'Panels': 'Panels, ',
-            'Layout': 'Layouts, ',
+            'Tables': 'Tabellen, für eine bessere Übersicht ',
+            'Labels': 'Labels mit beispielsweise der Syntax "{labels:label1|label2|label3}"zum kategorisieren und organisieren, ',
+            'Panels': 'Panels wo sie angebracht sind, ',
+            'Symbols': 'Symbole und Icons für eine bessere Darstellung, ',
             # 'Previews': 'Previews, ',
             # 'Interactive': 'Interactive Elements, ',
             # 'Expand': 'Expands, ',
@@ -230,7 +233,7 @@ def step_1(request):
         # Get the keys bases on user choice
         space_key = space_key_mapping.get(space_key, '')
         # prompt_key = prompt_mapping.get(prompt_key, '')
-        concatenated_prompt = ' '.join(prompt_mapping.get(prompt, '') for prompt in selected_prompt_keys)
+        concatenated_prompt = 'Verwende dafür explizit folgende Confluence-Syntax-Elemente: ' + ' '.join(prompt_mapping.get(prompt, '') for prompt in selected_prompt_keys)
         max_tokens_key = max_tokens_mapping.get(max_tokens_key, '')
 
         # Check if there's an uploaded file
