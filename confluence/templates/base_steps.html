@@ -15,8 +15,7 @@
 </head>
 <body>
 
-    <!-- Bootstrap Navbar for Progress Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -30,7 +29,32 @@
                 </li>
             </ul>
         </div>
+    </nav> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="http://127.0.0.1:8000/confluence/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="{% url 'step1' %}">Step 1: User Input</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="{% url 'step2' %}">Step 2: Edit and Verify</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="{% url 'step3' %}">Step 3: Finalize</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+    
+    
+    
 
     <div class="container-fluid mt-5">
         <div class="row">
