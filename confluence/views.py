@@ -290,11 +290,12 @@ def step_2(request):
 
         response = requests.post('https://socialknowledge.atlassian.net/wiki/rest/api/content', json=data, headers=headers)
         
+        prefix = "https://socialknowledge.atlassian.net/wiki"
         
         # Check the response
         if response.status_code == 200:
             page_url = response.json().get('_links', {}).get('webui', '')
-            success_message = f"Page created or updated successfully. Page URL: {page_url}"
+            success_message = f"Page wurde erfolgreich angelegt:"
 
             # Get the processed content from the API response
             processed_content = response.json().get('body', {}).get('storage', {}).get('value', '')
