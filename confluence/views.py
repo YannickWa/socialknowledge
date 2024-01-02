@@ -47,17 +47,17 @@ def openai_process_content(content, concatenated_prompt, max_tokens_key):
     )
     return response.choices[0].message["content"]
 
-# def openai_update_content(content):
-#     response = openai.ChatCompletion.create(
-#         model="gpt-4-1106-preview",
-#         messages=[
-#             {"role": "system", "content": f"'{basic_prompt}'."},
-#             {"role": "user", "content": f"Folgenden textuellen Inhalt zusammenfassen und formatieren: '{content}'"},
-#         ],
-#         max_tokens=500,
-#         temperature = 0.8,
-#     )
-#     return response.choices[0].message["content"]
+def openai_update_content(content):
+    response = openai.ChatCompletion.create(
+        model="gpt-4-1106-preview",
+        messages=[
+            {"role": "system", "content": f"'{basic_prompt}'."},
+            {"role": "user", "content": f"Folgenden textuellen Inhalt zusammenfassen und formatieren: '{content}'"},
+        ],
+        max_tokens=500,
+        temperature = 0.8,
+    )
+    return response.choices[0].message["content"]
 
 
 ### Dateien Upload ###
@@ -364,7 +364,7 @@ def update_confluence_content(request):
         current_title = current_content["title"]
 
         # Step 2: Concatenate existing content with new content
-        #new_content_to_add = openai_update_content(update_text)
+        # newest_content_to_add = openai_update_content(update_text)
         new_content_to_add = f"<p>{update_text}</p>"
         combined_content = existing_content + new_content_to_add
 

@@ -15,8 +15,8 @@
 <body>
     <div class="container">
         <div class="rounded p-4" style="border: 12px solid #17a2b8; background-color: #fff;">
-        <h2 class = "text-center mb-4">Step 2: Edit and Verify</h2>
-        <p>Concatenated Prompt: {{ concatenated_prompt }}</p>
+        <h2 class = "text-center mb-4">Schritt 2: Verifizieren und bearbeiten</h2>
+        <p>Zusätzliche Prompt-Anweisungen: {{ concatenated_prompt }}</p>
         
         <form method="post" action="{% url 'step2' %}">
             {% csrf_token %}
@@ -26,18 +26,18 @@
             <input type="hidden" name="title" value="{{ title }}">
 
             <div class="form-group">
-                <label for="space">Space:</label>
+                <label for="space">Bereich:</label>
                 <span>{{ space_key }}</span>
                 <!-- You can style or format the display as needed -->
             </div>
 
             <div class="form-group">
-                <label for="title">Title:</label>
+                <label for="title">Titel:</label>
                 <span>{{ title }}</span>
             </div>
 
             <div class="form-group">
-                <label for="processed_content">Please Edit and verify your content:</label><br>
+                <label for="processed_content">Verifiziere und bearbeite deinen Input nach belieben:</label><br>
                 <textarea class="form-control" id="processed_content" name="processed_content" rows="10" cols="100">{{ processed_content }}</textarea><br><br>
             </div>
 
@@ -47,7 +47,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
             <!-- Optional: Add your custom scripts here -->
 
-            <input type="submit" class="btn btn-primary" value="Post on Confluence">
+            <input type="submit" class="btn btn-primary" value="In Confluence veröffentlichen">
         </form>
 
     </div>

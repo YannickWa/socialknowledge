@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confluence Space Information</title>
+    <title>Confluence Bereiche</title>
     <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,19 +27,19 @@
 </head>
 <body class="container mt-5">
     <div class="text-center">
-        <h1 class="mb-4">Confluence Space Information</h1>
+        <!-- <h1 class="mb-4">Informationen zum Confluence Bereich</h1> -->
         
         <form method="post" action="{% url 'confluence_space_info' %}" class="form-inline justify-content-center">
             {% csrf_token %}
-            <div class="form-group mx-sm-3 mb-2">
+            <!-- <div class="form-group mx-sm-3 mb-2">
                 <label for="space_key" class="sr-only">Space Key:</label>
                 <input type="text" class="form-control" id="space_key" name="space_key" placeholder="Enter Space Key" required>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Get Space Info</button>
+            <button type="submit" class="btn btn-primary mb-2">Get Space Info</button> -->
         </form>
         {% if space_info %}
         <div class="mt-4">
-            <h2 class="mb-3">Pages in Space '{{ space_key }}'</h2>
+            <h2 class="mb-3">Pages im Bereich '{{ space_key }}'</h2>
             {% if space_info %}
                 <ul class="list-group">
                     {% for page_info in space_info %}

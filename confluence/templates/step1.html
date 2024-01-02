@@ -12,14 +12,14 @@
 <body>
     <div class ="container">
         <div class="rounded p-4" style="border: 12px solid #17a2b8; background-color: #fff;">
-    <h2 class="text-center mb-4">Step 1: User Input</h2>
+    <h2 class="text-center mb-4">Schritt 1: User Input</h2>
     
         <!-- <div class="col-md-8"> -->
             <form method="post" action="{% url 'step1' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 
                 <div class="form-group">
-                    <label for="space">Select Space:</label>
+                    <label for="space">Bereich auswählen:</label>
                     <select class="form-control" id="space" name="space" required>
                         <option value="Space1" {% if space_key == 'Space1' %}selected{% endif %}>Uni Project</option>
                         <option value="Space2" {% if space_key == 'Space2' %}selected{% endif %}>Documentation</option>
@@ -30,7 +30,7 @@
 
                 
                 <div class="form-group">
-                    <label for="prompt">Select Prompts:</label><br>
+                    <label for="prompt">Prompt-Zusätze:</label><br>
                     <div class="form-check inline-checkbox">
                         <input type="checkbox" class="form-check-input" id="Tables" name="prompt" value="Tables" {% if 'Tables' in prompt_keys %}checked{% endif %}>
                         <label class="form-check-label" for="Tables">Tables</label>
@@ -83,7 +83,7 @@
                 </div> -->
                 
                 <div class="form-group">
-                    <label for="max_tokens">Select Token-Size:</label>
+                    <label for="max_tokens">Token-Size auswählen:</label>
                     <select class="form-control" id="max_tokens" name="max_tokens" required>
                         <option value="Short" {% if max_tokens_key == 'Short' %}selected{% endif %}>Short (400)</option>
                         <option value="Middle" {% if max_tokens_key == 'Middle' %}selected{% endif %}>Middle (800)</option>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="title">Title:</label>
+                    <label for="title">Titel:</label>
                     <input type="text" class="form-control" id="title" name="title" required>
                 </div>
 
@@ -102,13 +102,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="file">Upload File:</label>
+                    <label for="file">File-Upload:</label>
                     <input type="file" class="form-control-file" id="file" name="file">
                 </div>
 
                 <div class="form-group">
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Process</button>
+                        <button type="submit" class="btn btn-primary">Verarbeiten</button>
                     </div>
                 </div>
             </form>
