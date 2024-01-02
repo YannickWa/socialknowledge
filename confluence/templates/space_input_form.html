@@ -10,13 +10,23 @@
 </head>
 <body class="container mt-5">
     <div class="text-center">
-        <h1 class="mb-4">Enter Confluence Space Key</h1>
+        <h1 class="mb-4">Confluence Bereich auswählen</h1>
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-info">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/confluence/">Home</a>
+        </nav>
 
         <form method="post" action="{% url 'confluence_space_info' %}" class="form-inline justify-content-center">
             {% csrf_token %}
             <div class="form-group mx-sm-3 mb-2">
-                <label for="space_key" class="sr-only">Space Key:</label>
-                <input type="text" class="form-control" id="space_key" name="space_key" placeholder="Enter Space Key" required>
+                <select class="form-control" id="space_key" name="space_key" required>
+                    <option value="TEAM">Uni Test</option>
+                    <option value="Documentat">Documentation</option>
+                    <option value="YannickTes">Yannick Test</option>
+                    <option value="VitaliTest">Vitali Test</option>
+                </select>
+                <!-- <label for="space_key" class="sr-only">Space Key:</label>
+                <input type="text" class="form-control" id="space_key" name="space_key" placeholder="Enter Space Key" required> -->
             </div>
             <button type="submit" class="btn btn-primary mb-2">Get Space Info</button>
         </form>
@@ -51,6 +61,18 @@
         {% endif %}
     </div>
 
+    <style>
+        .navbar {
+            background-color: #87CEEB; /* Light blueish color for the navbar */
+            height: 80px; /* Make the navbar taller */
+        }
+
+        body {
+            background-color: #f8f9fa; /* Set your preferred background color */
+            padding-top: 100px; /* Added padding-top for the fixed navbar */
+            text-align: center; /* Center the content */
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

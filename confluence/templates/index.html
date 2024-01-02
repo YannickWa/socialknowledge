@@ -9,16 +9,24 @@
     <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <!-- Font Awesome CSS link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-rqSzqcWV1q5QFhGk1FRP5XfuXE4PBOo6Z4zzU5zCEsI/KQ13zZysew4CfRE/A4uM" crossorigin="anonymous">
+
     <!-- Optional: Add your custom CSS styles here -->
     <style>
         body {
             background-color: #f8f9fa; /* Set your preferred background color */
-            padding: 50px;
+            padding-top: 100px; /* Added padding-top for the fixed navbar */
+            text-align: center; /* Center the content */
         }
 
-        .container {
-            text-align: center;
-            margin-top: 100px;
+        .navbar {
+            background-color: #87CEEB; /* Light blueish color for the navbar */
+            height: 80px; /* Make the navbar taller */
+        }
+
+        .container-fluid {
+            margin-top: 50px; /* Adjusted margin-top for the central content */
         }
 
         .btn-custom {
@@ -28,18 +36,49 @@
             font-size: 18px;
             border-radius: 8px;
             text-decoration: none;
+            display: inline-block; /* Align buttons horizontally */
+            margin: 10px; /* Add some spacing between buttons */
+        }
+
+        /* Adjust grid sizes */
+        .central-content {
+            height: 100%;
+        }
+
+        @media (min-width: 768px) {
+            /* Set the middle grid to be 80% */
+            .central-content {
+                width: 80%;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<!-- Fixed navbar at the top -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-info">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/confluence/">Home</a>
+</nav>
+
+<div class="container-fluid">
     <h1>Knowledge-Sharing powered by AI!</h1>
     <p>Knowledge-Sharing made easy.</p>
 
-    <!-- Clickable button that redirects to the "step_1" URL -->
-    <a href="{% url 'confluence_space_info' %}" class="btn btn-custom">Get-Request</a>
-    <a href="{% url 'step1' %}" class="btn btn-custom">Post-Request</a>
+    <div class="central-content">
+        <!-- Central Content - Larger Grid -->
+        <div class="card">
+            <div class="card-body">
+                <!-- <p>Main Content</p> -->
+                <a href="{% url 'confluence_space_info' %}" class="btn btn-custom">
+                    <i class="fas fa-book"></i> Get-Request
+                </a>
+                <a href="{% url 'step1' %}" class="btn btn-custom">
+                    <i class="fas fa-book"></i> Post-Request
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Bootstrap JS scripts (you may need to adjust the version or use a CDN) -->

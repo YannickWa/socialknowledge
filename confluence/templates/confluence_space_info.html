@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-info">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/confluence/">Home</a>
+    </nav>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confluence Space Information</title>
     <!-- Bootstrap CSS link (you may need to adjust the version or use a CDN) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .navbar {
+            background-color: #87CEEB; /* Light blueish color for the navbar */
+            height: 80px; /* Make the navbar taller */
+        }
+
+        body {
+            background-color: #f8f9fa; /* Set your preferred background color */
+            padding-top: 100px; /* Added padding-top for the fixed navbar */
+            text-align: center; /* Center the content */
+        }
+    </style>
 </head>
 <body class="container mt-5">
     <div class="text-center">
         <h1 class="mb-4">Confluence Space Information</h1>
-
+        
         <form method="post" action="{% url 'confluence_space_info' %}" class="form-inline justify-content-center">
             {% csrf_token %}
             <div class="form-group mx-sm-3 mb-2">
@@ -33,13 +50,8 @@
                             {% else %}
                                 <p class="mb-1">Page ID not available</p>
                             {% endif %}
-                            {% if page_info.description %}
-                                <p class="mb-1">Description: {{ page_info.description }}</p>
-                            {% else %}
-                                <p class="mb-1">No description available</p>
-                            {% endif %}
                             <p class="mb-1">URL: <a href="{{ page_info.url }}" target="_blank">{{ page_info.url }}</a></p>
-                            <a href="{{ page_info.url }}" class="btn btn-primary btn-sm">Update Page</a>
+                            <a href="{% url 'update_confluence_content' %}" class="btn btn-primary btn-sm">Update Page</a>
                         </li>
                     {% endfor %}
                 </ul>
