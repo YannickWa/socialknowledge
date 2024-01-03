@@ -11,7 +11,7 @@ import secret
 # Set your OpenAI API key
 openai.api_key =  secret.APIKEY_openAI
 
-# ### Mui Importante: Prompt ###
+# ### Alte Funktion Prompt ###
 # def openai_process_content(content):
 #     response = openai.ChatCompletion.create(
 #         model="gpt-4-1106-preview",
@@ -26,14 +26,48 @@ openai.api_key =  secret.APIKEY_openAI
 #     )
 #     return response.choices[0].message["content"]
 
-### Mui Importante: Prompt ###
+### Mui Importante: Prompts ###
+
+### Prompt 1 ###
+# basic_prompt = "Verfasse einen Confluence-kompatiblen Artikel basierend auf dem folgenden textuellen Inhalt. Alle persönlichen Daten wie Vor- und Nachname, Telefonnummern, E-Mailadressen und ähnliches sind zu pseudonymisieren. \
+#     / Der Artikel soll klare Struktur und Confluence-Syntax aufweisen, einschließlich Überschriften, Listen, Links und anderen Formatierungen. Betone wichtige Informationen visuell durch Panels oder Symbole. Beachte dabei, dass der Output direkt auf einer Confluence-Seite veröffentlicht werden soll."
+
+### Prompt 2 ###
+# basic_prompt = "Du erhältst vom Nutzer eine Sammlung unstrukturierter Notizen von Mitarbeitern, die wichtige Informationen zu verschiedenen Arbeitsprozessen enthalten. \ Deine Aufgabe besteht darin, diese Informationen zu analysieren und in einen gut strukturierten, informativen Wissensartikel für unser internes Confluence-Wiki zu übersetzen. Der Artikel sollte auf Deutsch verfasst sein und die gesamte verfügbare Confluence-Syntax nutzen, um eine optimale Präsentation zu gewährleisten. Achte darauf, dass du Überschriften, Listen, Links und andere Formatierungen einbindest, damit der Artikel klar, leicht lesbar und hilfreich für unsere Mitarbeiter ist. Hier sind spezifische Anforderungen an die Struktur des Artikels: Beginne mit einer einleitenden Zusammenfassung (Überschrift: \"Zusammenfassung\"), die kurz beschreibt, worum es in dem Artikel geht. Untergliedere den Artikel in Abschnitte mit aussagekräftigen Überschriften. Nutze Aufzählungen oder nummerierte Listen, um Schritte, Komponenten oder Aufzählungspunkte klar darzustellen. Wo nötig, verwende Tabellen, um Informationen zu strukturieren. Wenn du auf Ressourcen verweist oder externe Quellen zitierst, füge Hyperlinks hinzu. Formatiere wichtige Schlüsselbegriffe oder Handlungsaufrufe fett oder kursiv. Folgend findest du Beispiele für die Confluence-Syntax, die du bei Bedarf benutzen kannst: Überschriften: h1. Überschrift 1 h2. Überschrift 2 h3. Überschrift 3 Textformatierung Fett: *Text* oder **Text** Kursiv: _Text_ oder *Text* Unterstrichen: \\{ color:blau\\}*Text*\\{color\\} Durchgestrichen: -Text- Listen Aufzählungspunkte: * Punkt 1, ** Unterpunkt 1.1 Nummerierte Listen: # Punkt 1, ## Unterpunkt 1.1 Links Externe Links: [Link-Text|http://beispiel.com] Interne Links: [Seitentitel] Ankerlinks: [Link-Text|#AnkerName] Bilder !bild.jpg! Tabellen || Kopfzeile 1 || Kopfzeile 2 || | Zelle 1.1 | Zelle 1.2 | | Zelle 2.1 | Zelle 2.2 | Codeblöcke Codeblock: {Code} Code-Block {Code} Zitate {quote} Zitierter Text {quote} Trennlinien ---- Farben {color:rot}Text{color} Makros Verschiedene Makros zum Einbetten von Inhalten: (z.B., {expand}, {panel}, {note}, etc.) Erwähnungen @Benutzername Seitenumbrüche --- Fußnoten [^1] (für Fußnoten) Anhänge !anhängen.gif! Info-, Warn- und Fehler-Blöcke {info}Informationstext{info} {warning}Warnungstext{warning} {error}Fehlertext{error}. Nutze auf keinen Fall persönliche Daten, wie Telefonnummer, Mail-Adressen oder private, nicht-themenrelevante Notizen, die in den Notizen enthalten seien könnten. Deine Antwort wird direkt im Wiki veröffentlicht, beziehe dich daher nicht auf die Notizen oder deine Aufgabe, sondern gebe ausschließlich den Wiki-Artikel aus."
+
+### Prompt 3 ###
 # basic_prompt = "Als textuellen Input kriegst du Notizen oder Stichpunkte die du inhaltlich zusammenfasst. \
-#              \ Bereite den Output so vor, dass er vorzeigbar auf Confluence landen kann und verwende dafür Confluence-Syntax-Elemente und Markup-Formattierungen. \
-#               \ Verzichte auf eine Beschreibung deines Vorhabens und den Hinweisen am Ende. Stelle Links und Bilder so dar wie sie reinkommen, ohne auf Confluence Inhalte zu verweisen."
+#             \ Der Output sollte so aufbereitet werden, dass er auf einer Knowledge-Sharing Plattform landet und gegebenenen Konventionen entspricht. \
+#              \ Wende dafür entsprechende Confluence Syntax und Markup-Formattierungen an, um den Text aufzubereiten. Benutze falls angebracht Elemente wie Iframes oder Tabellen. \
+#              \ Eingefügte Links und Bilder verweisen nicht auf entsprechende Confluence Inhalte sondern sind entsprechend darzustellen. Vorhandene Codeschnipsel bitte formattiert darstellen."
 
+### Prompt 4 ###
+# basic_prompt = "Bitte erstelle aus den folgenden Notizen einen didaktisch gut aufgebauten Wiki-Artikel unter Verwendung von Confluence Syntax, wo zutreffend. Ignoriere dabei alle personenbezogenen Daten wie E-Mail-Adressen, Telefonnummern und private, nicht zum Thema passende Notizen. Der Artikel sollte sich direkt für die Veröffentlichung in Confluence eignen."
 
-basic_prompt = "Verfasse einen Confluence-kompatiblen Artikel basierend auf dem folgenden textuellen Inhalt. Der Artikel soll klare Struktur und Confluence-Syntax aufweisen, einschließlich Überschriften, Listen, Links und anderen Formatierungen. Betone wichtige Informationen visuell durch Panels oder Symbole. Beachte dabei, dass der Output direkt auf einer Confluence-Seite veröffentlicht werden soll."
+### Prompt 5 ###
+basic_prompt = """Bitte bereite den folgenden textuellen Inhalt für eine Confluence-Seite vor. Filtere sensible Informationen wie Namen, Telefonnummern und E-Mail-Adressen heraus. Strukturiere den Inhalt sinnvoll und nutze Confluence-Syntax für Formatierungen.
 
+**Hinweise für den OpenAI Prozess:**
+- Name: sensible Information entfernen.
+- Telefon: sensible Information entfernen.
+- E-Mail: sensible Information entfernen.
+- Betone wichtige Informationen visuell, z.B., durch Panels, Tabellen oder Symbole.
+- Achte darauf, dass der generierte Output direkt auf einer Confluence-Seite veröffentlicht werden kann, filtere also alles unpassende raus, damit es gar nicht erst auftaucht.
+
+**Beispiel für Confluence-Syntax:**
+Verschiedene Makros zum Einbetten von Inhalten:
+ (z.B., {expand}, {panel}, {note}, etc.)
+{info}
+Informationstext{info}
+                        
+{warning}
+Warnungstext{warning}
+                        
+{error}
+Fehlertext{error}
+
+{color:rot}Text{color}
+"""
 
 def openai_process_content(content, concatenated_prompt, max_tokens_key):
     response = openai.ChatCompletion.create(
@@ -47,6 +81,7 @@ def openai_process_content(content, concatenated_prompt, max_tokens_key):
     )
     return response.choices[0].message["content"]
 
+### Test-Funktion ###
 def openai_update_content(content):
     response = openai.ChatCompletion.create(
         model="gpt-4-1106-preview",
@@ -231,7 +266,7 @@ def step_1(request):
 
         prompt_mapping = {
             'Tables': 'Tabellen, für eine bessere Übersicht, ',
-            'Codes': 'Codebausteine und Code-Highlighting im "{code}" Format, ',
+            'Codes': 'Codebausteine und Code-Highlighting im "{code}" Format. Setze reale Beispiele ein, falls Pseudo-Code verwendet wird, ',
             'Makros': 'Makros (z.B. Panels, Expand, Notes, etc.), um Inhalte hervorzuheben, ',
             'Symbols': 'Symbole und Icons für eine bessere Darstellung von Zwischenschritten, ',
             # 'Previews': 'Previews, ',
@@ -270,6 +305,11 @@ def step_1(request):
                 input_text = text_content_from_file
         
         #print(concatenated_values)
+        if not selected_prompt_keys:
+            concatenated_prompt = ""
+        else:
+            pass     
+
         processed_content = openai_process_content(input_text, concatenated_prompt, max_tokens_key)
         return render(request, 'step2.html', {'input_text': input_text, 'processed_content': processed_content, 'space_key': space_key, 'title': title, 'concatenated_prompt': concatenated_prompt}) #, 'prompt_key': prompt_key, 'template': template, 'max_tokens_key': max_tokens_key
     return render(request, 'step1.html', {'input_text': '', 'processed_content': '', 'space_key': '', 'title': '', 'prompt_key': '', 'template': '', 'max_tokens_key': '', 'concatenated_prompt': ''})
