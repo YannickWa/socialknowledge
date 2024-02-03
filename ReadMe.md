@@ -12,6 +12,8 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
 - Django installieren: ```pip install django```
 
 ## Projekt Setup (**wichtig!**)
+- Django installieren: \
+```pip install Django```
 - Projekt herunterladen: \
 #Wo wollt ihr das Projekt haben? \
 ```cd Pfad/Zum/Zielverzeichnis```  \
