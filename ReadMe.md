@@ -13,13 +13,13 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
 
 ## Projekt Setup (**wichtig!**)
 - Django installieren: \
-```pip install Django```
+  - ```pip install Django```
 - Projekt herunterladen: \
 #Wo wollt ihr das Projekt haben? \
-```cd Pfad/Zum/Zielverzeichnis```  \
-```git clone https://github.com/YannickWa/socialknowledge``` \
-```cd socialknowledge``` \
-```git pull origin main``` 
+  - ```cd Pfad/Zum/Zielverzeichnis```  \
+  - ```git clone https://github.com/YannickWa/socialknowledge``` \
+  - ```cd socialknowledge``` \
+  - ```git pull origin main``` 
 - Erforderliche Pip Packages installieren:
   - ```pip install -r requirements.txt```
 - Erforderliche API-Keys:
