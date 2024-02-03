@@ -5,20 +5,23 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
 
 ## Voraussetzungen
 - Python 3.10+ installieren
-  - Überprüfen der Python-Version: `python --version`
-- Einrichtung einer Python virtuellen Umgebung empfohlen \
-  ```python -m venv venv```
-- Pip aktualisieren: ```python -m pip install --upgrade pip```
-- Django installieren: ```pip install django```
+  - Überprüfen der Python-Version:
+    - `python --version`
+- Einrichtung einer Python virtuellen Umgebung empfohlen
+    - ```python -m venv venv```
+- Pip aktualisieren:
+  - ```python -m pip install --upgrade pip```
+- Django installieren:
+  - ```pip install django```
 
 ## Projekt Setup (**wichtig!**)
-- Django installieren: \
+- Django installieren: 
   - ```pip install Django```
-- Projekt herunterladen: \
-#Wo wollt ihr das Projekt haben? \
-  - ```cd Pfad/Zum/Zielverzeichnis```  \
-  - ```git clone https://github.com/YannickWa/socialknowledge``` \
-  - ```cd socialknowledge``` \
+- Projekt herunterladen: 
+#Wo wollt ihr das Projekt haben? 
+  - ```cd Pfad/Zum/Zielverzeichnis```  
+  - ```git clone https://github.com/YannickWa/socialknowledge``` 
+  - ```cd socialknowledge``` 
   - ```git pull origin main``` 
 - Erforderliche Pip Packages installieren:
   - ```pip install -r requirements.txt```
@@ -39,9 +42,10 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
 
   - secret_REDACTED.py umbenennen in secret.py
   - API-Keys in `secret.py` eintragen (**wichtig!**)
-  - Im virtual-environment, zum Projektordner `socialknowledge` navigieren \
-    ```cd ..\socialknowledge\```
-  - Ausführen des Servers: ```python manage.py runserver```
+  - Im virtual-environment, zum Projektordner `socialknowledge` navigieren
+    - ```cd ..\socialknowledge\```
+  - Ausführen des Servers:
+    - ```python manage.py runserver```
   - Die Webpage über [http://127.0.0.1:8000/confluence/](http://127.0.0.1:8000/confluence/) aufrufen
 
 ## Erstellen von Inhalten auf Confluence mit unserem Tool
