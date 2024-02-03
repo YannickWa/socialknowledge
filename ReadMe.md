@@ -34,7 +34,8 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
   - Falls ihr euch nicht auskennt mit Django, oder generell MVT-Pattern Frameworks empfehlen wir die Doku vorher zu lesen.
 ## Nutzung des "SocialKnowledge" Projekts
   <summary>Anweisungen zum Start des Projekts</summary>
-  
+
+  - secret_REDACTED.py umbenennen in secret.py
   - API-Keys in `secret.py` eintragen (**wichtig!**)
   - Im virtual-environment, zum Projektordner `socialknowledge` navigieren \
     ```cd ..\socialknowledge\```
