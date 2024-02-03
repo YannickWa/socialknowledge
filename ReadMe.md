@@ -1,35 +1,51 @@
-Python installieren falls nicht vorhanden
-Python Version sollte 3.10+ sein
+# Einrichtung einer Django-Umgebung für das "SocialKnowledge" (Studi-)Projekt
 
-Empfohlen: Python virtual Environment einrichten und aktivieren
+## Zusammenfassung
+In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten mit dem "SocialKnowledge" Projekt in Python eingerichtet wird. Schritt-für-Schritt Anleitungen für die Installation von Python, die Einrichtung einer virtuellen Umgebung, das Installieren von Django und anderen erforderlichen Paketen stellen wir hier zur Verfügung, ebenso wie Anleitungen für das Erhalten der notwendigen API-Keys.
 
-pip bei Bedarf upgraden mit "python -m pip install --upgrade pip"
-Django installieren mit: pip install django
+## Voraussetzungen
+- Python 3.10+ installieren
+  - Überprüfen der Python-Version: `python --version`
+- Empfohlene Einrichtung einer Python virtuellen Umgebung
+- Pip aktualisieren: ```python -m pip install --upgrade pip```
+- Django installieren: ```pip install django```
 
-Projekt von Yannick Walla (E-Mail: yannick.walla@gmail.com) und Vitali Reinhardt (Tel: 01578 2792454) herunterladen auf https://github.com/YannickWa/socialknowledge
+## Projekt Setup (**wichtig!**)
+- Projekt herunterladen: \
+#Wo wollt ihr das Projekt haben? \
+```cd Pfad/Zum/Zielverzeichnis```  \
+```git clone https://github.com/YannickWa/socialknowledge``` \
+```cd socialknowledge``` \
+```git pull origin main``` 
+- Erforderliche Pip Packages installieren:
+  - ```pip install -r requirements.txt```
+- Erforderliche API-Keys:
+  - OpenAI-API Key: [Anleitung](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt)
+  - Confluence API-Key: [Anleitung](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 
-Pip Packages installieren mit: pip install -r requirements.txt
+## Was ist Django?
+  <summary>Klicken Sie hier für eine Einführung in Django</summary>
+  
+  Django ist ein hochgradig skalierbares und flexibles Web-Framework. Für eine tiefere Einführung:
+  - [Django Framework - Offizielle Dokumentation](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction)
+   ![Django Framework Übersicht](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction/basic-django.png)
 
-Was wird sonst benötigt?
+  - Falls ihr euch nicht auskennt mit Django, oder generell MVT-Pattern Frameworks empfehlen wir die Doku vorher zu lesen.
+## Nutzung des "SocialKnowledge" Projekts
+  <summary>Anweisungen zum Start des Projekts</summary>
+  
+  - API-Keys in `secret.py` eintragen (**wichtig!**)
+  - Im virtual-environment, zum Projektordner `socialknowledge` navigieren \
+    ```cd ..\socialknowledge\```
+  - Ausführen des Servers: ```python manage.py runserver```
+  - Die Webpage über [http://127.0.0.1:8000/confluence/](http://127.0.0.1:8000/confluence/) aufrufen
 
-benötigt wird ebenfalls ein OpenAI-API Key
+## Erstellen von Inhalten auf Confluence mit unserem Tool
+> - Bereich und Überschrift auswählen
+> - Token-size und Prompt-Zusätze festlegen
+> - Notizen einfügen (per Copy-Paste oder Dateiupload)
+> - "Process" klicken zur Verarbeitung
+> - Inhalt überprüfen, potenziell bearbeiten
+> - Final auf Confluence hochladen
 
-Anleitung: "https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt"
 
-und ein Confluence API-Key "https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/"
-
-Was ist Django, wie funktioniert es?
-Django Framework erklärt: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction
-
-https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction/basic-django.png
-
-Wie benutzt ihr unser Projekt?
-OpenAI API-Key und Confluence API-Key in secret.py eintragen
-
-Innerhalb des virtual-environments: navigieren in projektordner "socialknowledge"
-
-python manage.py runserver ausführen
-
-über "http://127.0.0.1:8000/confluence/" die Webpage aufrufen
-
-"Confluence-Content-erschaffen" ==> Bereich und Überschrift auswählen, Token-size und Prompt-Zusätze auswählen, Notizen einfügen per copy paste oder Datei hochladen ==> Process ==> überprüfen, potenziell editieren ==> final auf Confluence hochladen
