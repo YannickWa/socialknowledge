@@ -6,7 +6,8 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
 ## Voraussetzungen
 - Python 3.10+ installieren
   - Überprüfen der Python-Version: `python --version`
-- Empfohlene Einrichtung einer Python virtuellen Umgebung
+- Einrichtung einer Python virtuellen Umgebung empfohlen \
+  ```python -m venv venv```
 - Pip aktualisieren: ```python -m pip install --upgrade pip```
 - Django installieren: ```pip install django```
 
