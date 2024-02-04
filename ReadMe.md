@@ -1,4 +1,4 @@
-# Einrichtung einer Django-Umgebung für das "SocialKnowledge" (Studi-)Projekt
+# Einrichtung unserer Django-Web-App für das "SocialKnowledge" (Studi-)Projekt
 
 ## Zusammenfassung
 In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten mit dem "SocialKnowledge" Projekt in Python eingerichtet wird. Schritt-für-Schritt Anleitungen für die Installation von Python, die Einrichtung einer virtuellen Umgebung, das Installieren von Django und anderen erforderlichen Paketen stellen wir hier zur Verfügung, ebenso wie Anleitungen für das Erhalten der notwendigen API-Keys.
@@ -30,9 +30,8 @@ In diesem Artikel wird beschrieben, wie eine Django-Umgebung für das Arbeiten m
   - Confluence API-Key: [Anleitung](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/)
 
 ## Was ist Django?
-  <summary>Klicken Sie hier für eine Einführung in Django</summary>
+  <summary>Einführung in Django</summary>
   
-  Django ist ein hochgradig skalierbares und flexibles Web-Framework. Für eine tiefere Einführung:
   - [Django Framework - Offizielle Dokumentation](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction)
    ![Django Framework Übersicht](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction/basic-django.png)
 
